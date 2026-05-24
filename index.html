@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Marketing Digital Para Iniciantes</title>
+
+<style>
+body{
+  margin:0;
+  font-family:Arial,sans-serif;
+  color:white;
+  background:url("https://images.unsplash.com/photo-1556761175-4b46a572b786?auto=format&fit=crop&w=1600&q=80")
+  no-repeat center/cover;
+
+  min-height:100dvh;
+  position:relative;
+
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+
+  padding:0; /* antes era 12px - agora cola nas bordas */
+  text-align:center;
+}
+
+.overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.78);
+  z-index:1;
+}
+
+.container{
+  position:relative;
+  z-index:2;
+
+  width:100%;
+  max-width:100%; /* antes era 700px - agora ocupa tudo */
+
+  min-height:100dvh; /* ocupa a tela toda pra tirar espaço de baixo */
+
+  padding:20px 15px 30px; /* padding interno só aqui */
+
+  background:rgba(0,0,0,.45);
+  backdrop-filter:blur(4px);
+
+  border-radius:0; /* tira o arredondado pra ficar colado nas bordas */
+  border:none; /* tira a borda também */
+
+  box-shadow:none; /* tira sombra pra ficar full */
+}
+
+.badge{
+  background:#ff2e2e;
+  display:inline-block;
+  padding:7px 16px;
+  border-radius:30px;
+  font-size:14px;
+  font-weight:bold;
+  margin-bottom:12px;
+}
+
+h1{
+  font-size:32px;
+  line-height:1.15;
+  margin:0 0 12px;
+}
+
+p{
+  font-size:18px;
+  line-height:1.5;
+  opacity:.95;
+  margin:0 0 15px;
+}
+
+.countdown{
+  background:rgba(255,0,0,.18);
+  border:1px solid rgba(255,0,0,.5);
+  padding:12px;
+  border-radius:14px;
+  margin:18px 0;
+  font-size:18px;
+  font-weight:bold;
+}
+
+.price{
+  font-size:52px;
+  color:#00ff66;
+  margin:5px 0;
+  font-weight:900;
+}
+
+.guarantee{
+  font-size:15px;
+  line-height:1.5;
+  opacity:.92;
+  margin-bottom:18px;
+}
+
+button{
+  width:100%;
+  padding:18px;
+  font-size:21px;
+  background:#00ff66;
+  color:black;
+  border:none;
+  border-radius:14px;
+  cursor:pointer;
+  font-weight:900;
+  animation:pulse 1.5s infinite;
+  margin-bottom:22px;
+  box-shadow:0 5px 20px rgba(0,255,102,.35);
+}
+
+button:active{
+  transform:scale(.98);
+}
+
+@keyframes pulse{
+ 0%{transform:scale(1);}
+ 50%{transform:scale(1.03);}
+ 100%{transform:scale(1);}
+}
+
+.section{
+  background:rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:18px;
+  padding:18px;
+  margin:16px 0;
+  text-align:left;
+}
+
+.section h3{
+  font-size:21px;
+  margin:0 0 14px;
+  color:#00ff66;
+  text-align:center;
+}
+
+.benefits{
+  list-style:none;
+  padding:0;
+  margin:0;
+}
+
+.benefits li{
+  font-size:16px;
+  line-height:1.5;
+  margin:12px 0;
+  padding-left:28px;
+  position:relative;
+}
+
+.benefits li:before{
+  content:"✅";
+  position:absolute;
+  left:0;
+}
+
+.testimonial{
+  background:rgba(255,255,255,.04);
+  border-left:3px solid #00ff66;
+  padding:12px;
+  margin:12px 0;
+  border-radius:10px;
+  font-size:15px;
+  line-height:1.5;
+  font-style:italic;
+}
+
+.faq-item{
+  margin:14px 0;
+  border-bottom:1px solid rgba(255,255,255,.08);
+  padding-bottom:10px;
+}
+
+.faq-item strong{
+  font-size:16px;
+}
+
+.faq-item p{
+  font-size:14px;
+  margin-top:6px;
+  opacity:.85;
+}
+
+.popup{
+  position:fixed;
+  bottom:15px;
+  left:15px;
+  right:15px;
+  background:#111;
+  border:1px solid #00ff66;
+  padding:12px;
+  border-radius:14px;
+  font-size:14px;
+  z-index:999;
+  display:none;
+  max-width:320px;
+  box-shadow:0 8px 20px rgba(0,0,0,.4);
+}
+</style>
+</head>
+
+<body>
+
+<div class="overlay"></div>
+
+<div class="container">
+
+  <div class="badge">🔥 OFERTA LIMITADA</div>
+
+  <h1>Marketing Digital Para Iniciantes</h1>
+
+  <p>Aprenda do zero e comece a criar renda online com estratégias simples.</p>
+
+  <div class="countdown">
+    ⏳ Oferta termina em: <span id="timer">15:00</span>
+  </div>
+
+  <div class="price">258 MZN</div>
+  <div class="guarantee">✅ Acesso imediato | ✅ Suporte no WhatsApp | ✅ Garantia 7 dias</div>
+
+  <button onclick="pagar()">
+    🚀 QUERO COMEÇAR AGORA
+  </button>
+
+  <div class="section">
+    <h3>O que você vai aprender</h3>
+    <ul class="benefits">
+      <li>Criar sua primeira página de vendas em 1 hora</li>
+      <li>Atrair clientes no WhatsApp e Facebook sem gastar</li>
+      <li>Vender qualquer produto físico ou digital</li>
+      <li>Usar o celular para trabalhar de qualquer lugar</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h3>O que dizem os alunos</h3>
+    <div class="testimonial">
+      "Em 3 dias já fiz minha primeira venda de 500 MZN. Simples e direto." - João M.
+    </div>
+    <div class="testimonial">
+      "Nunca pensei que conseguiria vender online. O curso abriu minha mente." - Ana C.
+    </div>
+  </div>
+
+  <div class="section">
+    <h3>Perguntas Rápidas</h3>
+    <div class="faq">
+      <div class="faq-item">
+        <strong>Preciso saber informática?</strong>
+        <p>Não. O curso é do zero, só precisa de celular e internet.</p>
+      </div>
+      <div class="faq-item">
+        <strong>Quando recebo o acesso?</strong>
+        <p>Na hora. Após o pagamento o link chega no teu WhatsApp.</p>
+      </div>
+      <div class="faq-item">
+        <strong>E se eu não gostar?</strong>
+        <p>Tens 7 dias de garantia. Pede reembolso e devolvemos 100%.</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="popup" id="popup"></div>
+
+<script>
+let time = localStorage.getItem('timer') || 15 * 60;
+
+function updateTimer() {
+  let m = Math.floor(time / 60);
+  let s = time % 60;
+  document.getElementById("timer").textContent = `${m}:${s < 10 ? "0" : ""}${s}`;
+
+  if (time > 0) {
+    time--;
+    localStorage.setItem('timer', time);
+  } else {
+    time = 15 * 60;
+    localStorage.setItem('timer', time);
+  }
+}
+
+updateTimer();
+setInterval(updateTimer, 1000);
+
+const popup = document.getElementById("popup");
+const names = [
+  "João de Maputo",
+  "Maria de Nampula", 
+  "Carlos de Beira",
+  "Ana de Quelimane",
+  "Pedro de Tete",
+  "Lucas de Angola",
+  "Joana de Moçambique"
+];
+
+function showPopup() {
+  const name = names[Math.floor(Math.random() * names.length)];
+  popup.textContent = `🔥 ${name} acabou de comprar este curso`;
+  popup.style.display = "block";
+  setTimeout(() => {
+    popup.style.display = "none";
+  }, 4000);
+}
+
+setInterval(showPopup, 7000);
+
+function pagar(){
+  window.open('https://ratixpay.co.mz/checkout.html?produto=NLXBYI6RH', '_blank');
+  setTimeout(() => {
+    if(!document.hidden){
+      if(confirm("A página não abriu? Clica OK para pagar pelo Paynow.")){
+        window.open('https://paynow.co.mz', '_blank');
+      }
+    }
+  }, 3500);
+}
+</script>
+
+</body>
+</html>
